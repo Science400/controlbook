@@ -31,7 +31,7 @@ def animateInit():
 
     axPendulum.set_aspect('equal')
     axPendulum.set_xlim(np.min(z)-P.w/2, np.max(z)+P.w/2)
-    axPendulum.set_ylim(0, 0.7)
+    axPendulum.set_ylim(0, (P.h+P.ell)*1.2)
     cartPatch.set(xy=(P.z0-P.w/2, P.gap), width=P.w, height=P.h)
     cartPatch.set(color='orange')
     rodLine.set_data([z[0], z[0]+P.ell*np.sin(theta[0])], [P.gap+P.h, -(P.gap+P.h+P.ell*np.cos(theta[0]))])
