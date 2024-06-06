@@ -10,7 +10,7 @@ class squareWave:
         self.yoffset    = yoffset
 
     def __call__(self, t):
-        return self.amplitude*sg.square(2*np.pi*self.frequency*t, duty=self.dutycycle)+self.yoffset
+        return self.amplitude*sg.square(2*np.pi*self.frequency*t+self.phaseshift, duty=self.dutycycle)+self.yoffset
 
 class sawtoothWave:
     def __init__(self, frequency=1.0, amplitude=1.0, width=0.5, phaseshift=0, yoffset = 0) -> None:
@@ -21,7 +21,7 @@ class sawtoothWave:
         self.yoffset    = yoffset
 
     def __call__(self, t):
-        return self.amplitude*sg.sawtooth(2*np.pi*self.frequency*t, width=self.width)+self.yoffset
+        return self.amplitude*sg.sawtooth(2*np.pi*self.frequency*t+self.phaseshift, width=self.width)+self.yoffset
 
 class sineWave:
     def __init__(self, frequency=1.0, amplitude=1.0, phaseshift=0, yoffset = 0) -> None:
@@ -31,7 +31,7 @@ class sineWave:
         self.yoffset    = yoffset
 
     def __call__(self, t):
-        return self.amplitude*np.sin(2*np.pi*self.frequency*t)+self.yoffset
+        return self.amplitude*np.sin(2*np.pi*self.frequency*t+self.phaseshift)+self.yoffset
 
 class stepFunction:
     def __init__(self, amplitude=1.0, yoffset = 0) -> None:
