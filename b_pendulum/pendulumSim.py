@@ -18,8 +18,8 @@ theta = refTheta(t)
 fig, axs = plt.subplots(2, 1)
 axData = axs[0]
 axPendulum = axs[1]
-zLine, = axData.plot([], [])
-thetaLine, = axData.plot([], [])
+zLine, = axData.plot([], [], color="tab:orange")
+thetaLine, = axData.plot([], [], color="tab:blue")
 cartPatch = axPendulum.add_patch(Rectangle((P.z0-P.w/2, P.gap), P.w, P.h))
 rodLine, = axPendulum.plot([], [])
 
@@ -28,6 +28,7 @@ def animateInit():
     axData.set_ylim(np.min(z)*1.2, np.max(z)*1.2)
     zLine.set_data(t[0], z[0])
     thetaLine.set_data(t[0], z[0])
+    axData.legend(['$z$', '$\\theta$'])
 
     axPendulum.set_aspect('equal')
     axPendulum.set_xlim(np.min(z)-P.w/2, np.max(z)+P.w/2)
